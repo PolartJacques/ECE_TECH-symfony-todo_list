@@ -1,0 +1,16 @@
+{# template/base.html.twig #}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Wellcome !{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    {% block stylesheets %}{% endblock %}
+  </head>
+  <body>
+    {{ include('navbar.html.twig') }}
+    {% block body %}{% endblock %}
+    {% block javascripts %}{% endblock %}
+  </body>
+</html>

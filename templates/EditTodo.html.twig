@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block title %}edit your todo{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h3>edit your todo : {{ todo.name }}</h3>
+    {{ form_start(todoForm) }}
+    <span class="font-weight-bold">{{ form_label(todoForm.name, 'edit todo')}}</span>
+    {{ form_widget(todoForm.name)}}
+    {{ form_widget(todoForm.save, {'attr': {'class': 'btn btn-info'}})}}
+    {{ form_end(todoForm) }}
+</div>
+{% endblock %}

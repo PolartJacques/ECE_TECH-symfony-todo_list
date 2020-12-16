@@ -1,0 +1,37 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Todo list{% endblock %}
+
+{% block javascripts %}
+<script type="text/javascript">
+    function AlertIt(todoId) {
+    var answer = confirm ("Please click on OK to continue.")
+    if (answer)
+    window.location="/todolist/delete/" + todoId;
+    }
+</script>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+
+    <ul class="list-group">
+        <li class="list-group-item bg-dark text-white">my to do list</li>
+        {% for todo in todos%}
+        <li class="list-group-item">
+            {{ todo.name }}
+            <div class="float-right">
+                <a class="btn btn-info" href="/todolist/edit/{{ todo.id }}">edit</a>
+                <a class="btn btn-danger" href="javascript:AlertIt({{ todo.id }});">delete</a>
+            </div>
+        </li>
+        {% endfor %}
+        <li class="list-group-item">
+            {{ form_start(todoForm) }}
+                {{ form_widget(todoForm.name)}}
+                {{ form_widget(todoForm.save, {'attr': {'class': 'btn btn-info'}})}}
+            {{ form_end(todoForm) }}
+        </li>
+    </ul>
+</div>
+{% endblock %}
